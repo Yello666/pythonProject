@@ -1,0 +1,11 @@
+sanic~=21.6.0
+requests
+websocket
+pymysql~=1.1.1
+snowflake-id
+flake8
+cryptography
+pysftp~=0.2.9
+psutil~=6.1.0
+redis~=5.2.0
+websockets~=13.1

@@ -1,0 +1,6 @@
+{"timestamp": "2023-12-22 18:48:32,151", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "get": {"hardware_sn": "A32F324"}}}
+{"timestamp": "2023-12-22 18:48:32,221", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "result": {"hardware_sn": "A32F324", "status": "on_line"}}}
+{"timestamp": "2023-12-22 18:49:02,253", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "get": {"hardware_sn": "A32F324"}}}
+{"timestamp": "2023-12-22 18:49:02,323", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "result": {"hardware_sn": "A32F324", "status": "on_line"}}}
+{"timestamp": "2023-12-22 18:49:32,354", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "get": {"hardware_sn": "A32F324"}}}
+{"timestamp": "2023-12-22 18:49:32,420", "level": "INFO", "message": {"method": "UP_DEVICE_DATA", "result": {"hardware_sn": "A32F324", "status": "on_line"}}}

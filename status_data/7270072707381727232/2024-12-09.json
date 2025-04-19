@@ -1,0 +1,162 @@
+[
+    {
+        "cpu": 2.7,
+        "memory": 71.0,
+        "disk_usage": 87.9,
+        "network": {
+            "vEthernet (WSL (Hyper-V firewall))": {
+                "addresses": [
+                    [
+                        -1,
+                        "00-15-5D-76-92-0A",
+                        null,
+                        null,
+                        null
+                    ],
+                    [
+                        2,
+                        "172.18.16.1",
+                        "255.255.240.0",
+                        null,
+                        null
+                    ],
+                    [
+                        23,
+                        "fe80::fa5e:7786:2953:c510",
+                        null,
+                        null,
+                        null
+                    ]
+                ],
+                "status": [
+                    true,
+                    2,
+                    4294,
+                    1500,
+                    ""
+                ]
+            },
+            "\u4ee5\u592a\u7f51": {
+                "addresses": [
+                    [
+                        -1,
+                        "6C-24-08-99-D8-4B",
+                        null,
+                        null,
+                        null
+                    ],
+                    [
+                        2,
+                        "192.168.1.111",
+                        "255.255.255.0",
+                        null,
+                        null
+                    ],
+                    [
+                        23,
+                        "fe80::7509:cabc:46ca:b28f",
+                        null,
+                        null,
+                        null
+                    ]
+                ],
+                "status": [
+                    true,
+                    2,
+                    1000,
+                    1500,
+                    ""
+                ]
+            },
+            "\u672c\u5730\u8fde\u63a5* 3": {
+                "addresses": [
+                    [
+                        -1,
+                        "C4-75-AB-2C-0C-E1",
+                        null,
+                        null,
+                        null
+                    ],
+                    [
+                        2,
+                        "169.254.185.167",
+                        "255.255.0.0",
+                        null,
+                        null
+                    ],
+                    [
+                        23,
+                        "fe80::48fe:e9f3:391d:1b9d",
+                        null,
+                        null,
+                        null
+                    ]
+                ],
+                "status": [
+                    false,
+                    2,
+                    0,
+                    1500,
+                    ""
+                ]
+            },
+            "WLAN": {
+                "addresses": [
+                    [
+                        -1,
+                        "C4-75-AB-2C-0C-E0",
+                        null,
+                        null,
+                        null
+                    ],
+                    [
+                        2,
+                        "169.254.148.7",
+                        "255.255.0.0",
+                        null,
+                        null
+                    ],
+                    [
+                        23,
+                        "fe80::e81f:7168:7035:c093",
+                        null,
+                        null,
+                        null
+                    ]
+                ],
+                "status": [
+                    false,
+                    2,
+                    137,
+                    1500,
+                    ""
+                ]
+            },
+            "Loopback Pseudo-Interface 1": {
+                "addresses": [
+                    [
+                        2,
+                        "127.0.0.1",
+                        "255.0.0.0",
+                        null,
+                        null
+                    ],
+                    [
+                        23,
+                        "::1",
+                        null,
+                        null,
+                        null
+                    ]
+                ],
+                "status": [
+                    true,
+                    2,
+                    1073,
+                    1500,
+                    ""
+                ]
+            }
+        }
+    }
+]
