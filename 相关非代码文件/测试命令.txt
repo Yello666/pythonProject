@@ -1,0 +1,98 @@
+curl 8.137.48.132:8000/v1/devices | jq
+全部设备
+
+curl -X POST -d '{"name":"测试命令用的device4","type":"controller","LTE_IMEI": "352049080000000","hardware_model":"Raspberry Pi 4","hardware_sn":"H13X874","software_version":"0.0","nic_type":"eth","nic_mac":"13:68:fd:25:8e:a7","nic_ipv4":"123.12.15.26","wifi_mac":"00-1A-2B-3C-4D-5E",status":0}' http://8.137.48.132:8000/v1/devices | jq
+设备注册 add_device
+
+curl -X PUT http://8.137.48.132:8000/v1/psd -H "Content-Type: application/json" -d '{"did":7270071835557892096,"secret":["aloVQrsfHF", "123456"]}' | jq
+设备密码修改 change_psd
+
+curl -X DELETE -H "Content-Type:application/json" -d '{"did":7270071835557892096}' http://8.137.48.132:8000/v1/devices | jq
+设备依据did删除 delete_device
+
+curl -X POST -d '{"group_name":"测试用的group4"}' http://8.137.48.132:8000/v1/group | jq
+添加设备组 add_group
+
+curl -X DELETE -H "Content-Type:application/json" -d '{"gid": 7270072547998179328}' http://8.137.48.132:8000/v1/group | jq
+删除设备组 delete_group
+
+curl -X PUT http://8.137.48.132:8000/v1/relation -H "Content-Type: application/json" -d '{"gid":7270072994653806592,"did":7270071606800551936}' | jq
+添加设备分组关系 add_relation
+
+curl -X DELETE -H "Content-Type:application/json" -d '{"gid":7270072994653806592}' http://8.137.48.132:8000/v1/group_device | jq
+按设备分组删除设备，即将一个设备组的设备都删掉 delete_devices_by_gid
+
+curl -X DELETE -H "Content-Type:application/json" -d '{"did":7270078374612045824}' http://8.137.48.132:8000/v1/device_group | jq
+按设备编号删除该设备所在的所有分组 delete_group_by_did
+
+curl -X DELETE -H "Content-Type:application/json" -d '{"did":7270098253880758272,"gid":7270098350773379072}' http://8.137.48.132:8000/v1/relation | jq
+删除设备关系 delete_relation
+
+-----------------------------------xky-------------------------------------------------
+更新并获取指定did的所有组信息
+curl -X GET "http://8.137.48.132:8000/v1/all?did=7270275095250079744" | jq .
+curl -X GET "http://localhost:8001/v1/all?did=7270275095250079744" | jq .
+
+
+缺少did,更新并获取所有设备的组信息
+curl -X GET "http://8.137.48.132:8000/v1/all?did=" | jq .
+curl -X GET "http://localhost:8001/v1/all?did=" | jq .
+
+---------
+根据gid获取所有有关系的设备
+curl -X GET 8.137.48.132:8000/v1/group_device?gid=7270275740866715648 | jq .
+curl localhost:8001/v1/group_device?gid=7270275740866715648 | jq .
+
+---------
+根据did查询对应的所有设备组信息
+curl -X GET 8.137.48.132:8000/v1/device_group?did=7270275095250079744 | jq .
+curl localhost:8001/v1/device_group?did=7270275095250079744 | jq .
+
+---------
+缺少did,hardware_model,hardware_sn,获取所有设备信息
+curl -X GET 8.137.48.132:8000/v1/devices?did=&hardware_model=&hardware_sn= | jq .
+curl localhost:8001/v1/devices?did=&hardware_model=&hardware_sn= | jq .
+
+---------
+根据did获取设备信息
+curl -X GET 8.137.48.132:8000/v1/devices?did=7270275095250079744&hardware_model=&hardware_sn= | jq .
+curl localhost:8001/v1/devices?did=7270275095250079744&hardware_model=&hardware_sn= | jq .
+
+---------
+根据hardware_model和hardware_sn获取设备信息
+curl -X GET 8.137.48.132:8000/v1/devices?did=&hardware_model=a&hardware_sn=1234 | jq .
+curl localhost:8001/v1/devices?did=&hardware_model=a&hardware_sn=1234 | jq
+------------
+根据gid来获取设备组信息，
+curl -X GET 8.137.48.132:8000/v1/group?gid=7270275740866715648 | jq .
+curl localhost:8001/v1/group?gid=7270275740866715648 | jq .
+
+------------
+若没有gid参数则获取所有group信息
+curl -X GET 8.137.48.132:8000/v1/group?gid= | jq .
+curl localhost:8001/v1/group?gid= | jq .
+-----------------
+根据did和gid查询relation表
+curl -X GET 8.137.48.132:8000/v1/relation?did=7270275095250079744&gid=7270275740866715648 | jq .
+curl localhost:8001/v1/relation?did=7270275095250079744&gid=7270275740866715648 | jq .
+
+-------
+根据did更新设备
+curl -X PUT -d '{"did": "7270275095250079744", "dname": "New Device Name", "hardware_sn": "SN123456789", "hardware_model": "ModelABC", "nic_type": "Ethernet", "nic_mac": "00:14:22:01:23:45", "nic_ipv4": "192.168.1.1", "wifi_mac": "00:14:22:01:23:46", "LTE_IMEI": "123456789012345", "software_version": "v2.0.1", "status": 1}' http://8.137.48.132:8000/v1/devices | jq .
+
+curl -X PUT -d '{"did": "7270275095250079744", "dname": "New Device Name", "hardware_sn": "SN123456789", "hardware_model": "ModelABC", "nic_type": "Ethernet", "nic_mac": "00:14:22:01:23:45", "nic_ipv4": "192.168.1.1", "wifi_mac": "00:14:22:01:23:46", "LTE_IMEI": "123456789012345", "software_version": "v2.0.1", "status": 1}' http://localhost:8001/v1/devices | jq .
+
+-----------
+根据gid更新设备组信息
+curl -X PUT -d '{"gid": "12345", "new_gname": "New Device Group Name"}' http://8.137.48.132:8000/v1/group | jq .
+
+curl -X PUT -d '{"gid": "12345", "new_gname": "New Device Group Name"}' http://localhost:8001/v1/group | jq .
+
+
+
+
+
+
+
+
+
